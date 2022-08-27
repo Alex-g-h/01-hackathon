@@ -41,6 +41,10 @@ export class ContextMenu extends Menu {
     const liHTML = document.createElement('li');
     liHTML.className = 'menu-item';
     liHTML.textContent = module.text;
+    liHTML.addEventListener('click', (event) => {
+      this.close();
+      module.trigger();
+    });
 
     this.el.append(liHTML);
   }  

@@ -6,6 +6,6 @@ export class TestModule extends Module {
   }
 
   trigger() {
-    console.log(`${this.type} module triggered`);
+    console.log(`${this.type} module triggered: ${this.text}`);
   }
 }
