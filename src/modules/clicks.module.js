@@ -6,11 +6,11 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
-    function getRandomIntInclusive(min, max) {
+    getRandomIntInclusive = (min, max) => {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    };
     const clickTime = getRandomIntInclusive(5000, 10000);
     let clickCount = 0;
 
