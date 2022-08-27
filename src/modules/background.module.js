@@ -1,6 +1,7 @@
 import {Module} from '../core/module'
-
+import {getRandomColor} from '../utils/utils'
 export class BackgroundModule extends Module {
-    // проверка // еще раз проверка
-    // Модуль случайного фона????
-}
+  trigger() {
+    document.body.style.background = getRandomColor()
+  }
+};
