@@ -1,7 +1,11 @@
 import { Module } from "../core/module";
 
 export class ClicksModule extends Module {
-  constructor() {
+  constructor(type, text) {
+    super(type, text);
+  }
+
+  trigger() {
     function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
