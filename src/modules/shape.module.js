@@ -8,7 +8,7 @@ export class ShapeModule extends Module {
         }
     
         square() {
-            const color =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
+            const color = `linear-gradient(${random(0, 360)}deg, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, .5) ${random(0, 100)}%, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, 1) ${random(0, 100)}%)`
             const body = document.querySelector('body')
             const size = random(300, 400)
             const {width, height} = body.getBoundingClientRect()
@@ -28,7 +28,7 @@ export class ShapeModule extends Module {
         }
     
         circle() {
-            const color =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
+            const color = `linear-gradient(${random(0, 360)}deg, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, .5) ${random(0, 100)}%, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, 1) ${random(0, 100)}%)`
             const body = document.querySelector('body')
             const size = random(100, 400)
             const {width, height} = body.getBoundingClientRect()
@@ -57,7 +57,7 @@ export class ShapeModule extends Module {
             const x = random(0, width - size) 
             const y = random(0, height- size)
             element.style.borderRadius = '50%'
-            element.style.border =`${random(6, 15)}px solid ${color}`
+            element.style.border =`${random(15, 25)}px solid ${color}`
             element.style.width = element.style.height = `${size}px`
             element.style.position='absolute'
             element.style.top=`${y}px`
@@ -70,7 +70,7 @@ export class ShapeModule extends Module {
         }
     
         rectangle() {
-            const color =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
+            const color = `linear-gradient(${random(0, 360)}deg, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, 0.7) ${random(0, 100)}%, rgba(${random(0, 255)},${random(0, 255)},${random(0, 255)}, 1) ${random(0, 100)}%)`
             const body = document.querySelector('body')
             const sizeWidth = random(90, 400)
             const sizeHeight = random(90, 400)
@@ -118,7 +118,7 @@ export class ShapeModule extends Module {
         }
         
         triangleDown() {
-            const color =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
+            const colorOfEl =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
             const body = document.querySelector('body')
             const sizeWidth = random(90, 300)
             const sizeHeight = random(150, 300)
@@ -130,17 +130,17 @@ export class ShapeModule extends Module {
             element.style.height = '0px'
             element.style.borderLeft = `${sizeWidth}px solid transparent`
             element.style.borderRight = `${sizeWidth}px solid transparent`
-            element.style.borderTop= `${sizeHeight}px solid ${color}`
+            element.style.borderTop= `${sizeHeight}px solid ${colorOfEl}`
             element.style.position='absolute'
             element.style.top=`${y}px`
             element.style.left=`${x}px`
             document.body.append(element)
             element.animate([{transform: 'rotate(0) scale(1)'},
             {transform: 'rotate(360deg) scale(0)'}
-          ], 2000)
+            ], 2000)  
             setTimeout(() => {element.remove()}, 2000)
         }
-    
+           
         infinity() {
             const color =`rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
             const body = document.querySelector('body')
@@ -153,7 +153,7 @@ export class ShapeModule extends Module {
             const y = random(2, height - 2*sizeWidth)
             elementOne.style.position = 'relative'
             elementTwo.style.position = 'absolute'
-            elementOne.style.border = elementTwo.style.border = `25px solid ${color}`
+            elementOne.style.border = elementTwo.style.border = `25px solid rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`
             elementOne.style.borderRadius = elementTwo.style.borderRadius  ='50px 50px 0 50px'
             elementOne.style.transform = 'rotate(-45deg)'
             elementOne.style.marginTop=`${y}px`
@@ -194,8 +194,8 @@ export class ShapeModule extends Module {
             elementTwo.style.transform = 'rotate(90deg)'
             document.body.append(elementOne)
             elementOne.append(elementTwo)
-            elementOne.animate([{transform: 'rotate(0) scale(1)'},
-            {transform: 'rotate(360deg) scale(0)'}
+            elementOne.animate([{transform: 'rotate(100%) scale(1)'},
+            {transform: 'rotate(360deg) scale(3)'}
           ], 2000)
             setTimeout(() => {elementOne.remove()}, 2000)
         }
@@ -206,8 +206,8 @@ export class ShapeModule extends Module {
             const {width, height} = body.getBoundingClientRect()
             const elementOne = document.createElement('div')
             const elementTwo = document.createElement('div')
-           const x = random(2, width - 240) 
-            const y = random(2, height - 400)
+            const x = random(2, width - 300) 
+            const y = random(2, height-300 )
             elementOne.style.position = 'relative'
             elementOne.style.width = '0px'
             elementOne.style.height = '0px'
@@ -217,7 +217,7 @@ export class ShapeModule extends Module {
             elementOne.style.borderRight = '100px solid transparent'
             elementOne.style.borderBottom = `150px solid ${color}`
             elementTwo.style.borderLeft = '100px solid transparent' 
-            elementTwo.style.borderRight = ' 100px solid transparent'
+            elementTwo.style.borderRight = `100px solid transparent`
             elementTwo.style.borderTop = `150px solid ${color}`
             elementTwo.style.position = 'absolute'
             elementTwo.style.width = '0px'
@@ -233,15 +233,10 @@ export class ShapeModule extends Module {
         } 
     
         trigger() {
-            // const li = document.querySelector('li')
-            // li.addEventListener('click', (event) => {
-            //     const {target} = event
-                const p = [this.star, this.square,  this.circle, this.triangleUp, this.rectangle, this.triangleDown, this.ring, this.infinity, this.heart]
-                 p[random(0,p.length-1)]()
-                
-            
+           const arrayOfShapesp = [this.star, this.square,  this.circle, this.triangleUp, this.rectangle, this.triangleDown, this.ring, this.infinity, this.heart]
+            arrayOfShapesp[random(0,arrayOfShapesp.length-1)]()
         }
-    }
+}
     
     
 
