@@ -10,7 +10,7 @@ export class ShapeModule extends Module {
         
         #animate(elem, firstParameter, secondParameter, rotate = 0) {
             elem.animate([
-                {transform: `rotate(${rotate}%) scale(${firstParameter})`},
+                {transform: `rotate(${rotate}deg) scale(${firstParameter})`},
                 {transform: `rotate(360deg) scale(${secondParameter})`}
             ], 2000);
         }
