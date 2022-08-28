@@ -21,5 +21,4 @@ const testModule4 = new TestModule(
 contextMenu.add(clickModule);
 contextMenu.add(shapeModule);
 contextMenu.add(backgroundModule);
-contextMenu.add(testModule3);
 contextMenu.add(timerModule);
