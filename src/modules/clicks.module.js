@@ -26,12 +26,13 @@ export class ClicksModule extends Module {
 
     const addCallbackFunc = this.#countClicks.bind(this);
 
+    // prevent taking into account click on "OK" button
+    setTimeout(() => document.addEventListener("click", addCallbackFunc), 0);
+
     setTimeout(() => {
       alert(`Количество кликов равно ${this.#clickCount}`);
 
       document.removeEventListener("click", addCallbackFunc);
     }, clickTime);
-
-    document.addEventListener("click", addCallbackFunc);
   }
 }
