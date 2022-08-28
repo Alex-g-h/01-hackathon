@@ -1,6 +1,7 @@
 import { Module } from './core/module.js';
 import {Menu} from './core/menu'
 import { getContextMenuLeftPosition, getContextMenuTopPosition } from './utils.js';
+import { BackgroundModule } from './modules/background.module';
 
 export class ContextMenu extends Menu {
   constructor(selector) {
