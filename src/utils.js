@@ -13,6 +13,7 @@ export function getRandomColor() {
 
 const GAP = 5; // small gap from side for visibility, [pixels]
 
+
 /**
  * Calculate correct X position for context menu that fit to screen totally
  * @param {*} clickLeft Position X of mouse click
@@ -41,7 +42,7 @@ export function getContextMenuLeftPosition(clickLeft, parentWidth, menuWidth) {
  * @param {*} menuWidth Context menu height
  * @returns Y coordinate of context menu in integer
  */
- export function getContextMenuTopPosition(clickTop, parentHeight, menuHeight) {
+export function getContextMenuTopPosition(clickTop, parentHeight, menuHeight) {
   let top = clickTop;
 
   // prevent menu overlap outside the screen
@@ -50,6 +51,6 @@ export function getContextMenuLeftPosition(clickLeft, parentWidth, menuWidth) {
 
   // for visibility
   if (clickTop < GAP)
-   top = GAP;
+    top = GAP;
   return top;
 }
