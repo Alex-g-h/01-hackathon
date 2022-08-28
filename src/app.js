@@ -1,16 +1,22 @@
-import './styles.css'
-import { ContextMenu } from './menu.js';
-import { TestModule } from './modules/test.module.js';
+import "./styles.css";
+import { ContextMenu } from "./menu.js";
+import { TestModule } from "./modules/test.module.js";
+import { ClicksModule } from "./modules/clicks.module.js";
+import { BackgroundModule } from './modules/background.module';
 import {ShapeModule} from './modules/shape.module'
 
-const contextMenu = new ContextMenu('.menu');
+const contextMenu = new ContextMenu(".menu");
 
-const testModule1 = new TestModule('test', 'test module 1');
-const testModule2 = new ShapeModule()
-const testModule3 = new TestModule('test', 'test module with very big text');
-const testModule4 = new TestModule('test', 'test module with huge length text for extended test for big height');
+const clickModule = new ClicksModule("click", "Считать клики");
+const testModule1 = new TestModule("test", "test module 1");
+const shapeModule = new ShapeModule();
+const backgroundModule = new BackgroundModule();
+const testModule4 = new TestModule(
+  "test",
+  "test module with huge length text for extended test for big height"
+);
 
-contextMenu.add(testModule1);
-contextMenu.add(testModule2);
+contextMenu.add(clickModule);
+contextMenu.add(shapeModule);
+contextMenu.add(backgroundModule);
 contextMenu.add(testModule3);
-contextMenu.add(testModule4);
