@@ -1,35 +1,32 @@
 import { Module } from "../core/module";
+import { random } from "../utils.js";
 
 export class ClicksModule extends Module {
   constructor(type, text) {
     super(type, text);
   }
 
+  #clickCount;
+
+  #countClicks() {
+    clickCount++;
+  }
+
   trigger() {
-    function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    const clickTime = getRandomIntInclusive(5000, 10000);
-    let clickCount = 0;
+    const clickTime = new random(5000, 10000);
+    this.#clickCount = 0;
 
     alert(
       `После нажатия на ОК будет подсчет кликов в любом месте экрана за время ${Math.round(
         clickTime / 1000
       )} секунд`
     );
+
     setTimeout(() => {
-      alert(`Количество кликов равно ${clickCount}`);
-      clickCount = 0;
-      document.removeEventListener("click", countClicks);
+      alert(`Количество кликов равно ${this.#clickCount}`);
+      document.removeEventListener("click", this.#countClicks);
     }, clickTime);
 
-    document.addEventListener("click", countClicks);
-
-    function countClicks() {
-      clickCount++;
-      console.log("click");
-    }
+    document.addEventListener("click", this.#countClicks);
   }
 }
