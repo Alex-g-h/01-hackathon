@@ -40,3 +40,11 @@ body {
 .menu .menu-item:hover {
     background: #343434;
 }
+
+.timer {
+    display: flex;
+    float: right;
+    align-items: flex-end;
+    height: 100%;
+    /* border: 1px solid purple; */
+}
