@@ -24,7 +24,6 @@ export class ClicksModule extends Module {
 
     setTimeout(() => {
       alert(`Количество кликов равно ${this.#clickCount}`);
-      document.removeEventListener("click", document);
     }, clickTime);
 
     document.addEventListener("click", () => {
