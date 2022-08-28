@@ -1,8 +1,18 @@
 export function random(min, max) {
-  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
+  return Math.round(min - 0.5 + Math.random() * (max - min + 1))
 }
 
+export function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+} 
+
 const GAP = 5; // small gap from side for visibility, [pixels]
+
 
 /**
  * Calculate correct X position for context menu that fit to screen totally
@@ -15,12 +25,15 @@ export function getContextMenuLeftPosition(clickLeft, parentWidth, menuWidth) {
   let left = clickLeft;
 
   // prevent menu overlap outside the screen
-  if (clickLeft + menuWidth > parentWidth) left = parentWidth - menuWidth - GAP;
+  if (clickLeft + menuWidth > parentWidth)
+    left = parentWidth - menuWidth - GAP;
 
   // for visibility
-  if (clickLeft < GAP) left = GAP;
+  if (clickLeft < GAP)
+    left = GAP;
   return left;
 }
+
 
 /**
  * Calculate correct Y position for context menu that fit to screen totally
@@ -37,6 +50,7 @@ export function getContextMenuTopPosition(clickTop, parentHeight, menuHeight) {
     top = parentHeight - menuHeight - GAP;
 
   // for visibility
-  if (clickTop < GAP) top = GAP;
+  if (clickTop < GAP)
+    top = GAP;
   return top;
 }
