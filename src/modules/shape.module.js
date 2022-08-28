@@ -19,21 +19,24 @@ export class ShapeModule extends Module {
            return `rgb(${random(0, 255)},
                        ${random(0, 255)},
                        ${random(0, 255)})`;
-                 
+        }
+        
+        #getRandomColorAlpha() {
+            return `${random(0, 100)}%`
         }
 
         #getRandomGradient() {
             return `linear-gradient(
-                  ${random(0, 360)}deg,
-             rgba(${random(0, 255)},
-                  ${random(0, 255)},
-                  ${random(0, 255)}, .5)
-                  ${random(0, 100)}%,
-             rgba(${random(0, 255)},
-                  ${random(0, 255)},
-                  ${random(0, 255)}, 1)
-                  ${random(0, 100)}%)`;
-                    
+                        ${random(0, 360)}deg,
+                        rgba(${random(0, 255)},
+                             ${random(0, 255)},
+                             ${random(0, 255)}, 0.5) 
+                             ${random(0, 100)}%,
+                        rgba(${random(0, 255)},
+                             ${random(0, 255)},
+                             ${random(0, 255)}, 1.0)
+                             ${random(0, 100)}%
+                    )`;
         }
 
         #duplicateСodeSquareCircle(borderRadius = 0, border = 'none', background = this.#getRandomGradient()) {
@@ -44,11 +47,11 @@ export class ShapeModule extends Module {
             const y = random(0, height- size);
             element.style.background = background;
             element.style.width = element.style.height = `${size}px`;
-            element.style.position='absolute';
-            element.style.top=`${y}px`;
-            element.style.left=`${x}px`;
+            element.style.position = 'absolute';
+            element.style.top =`${y}px`;
+            element.style.left =`${x}px`;
             element.style.borderRadius = `${borderRadius}%`;
-            element.style.border =`${border}`;
+            element.style.border = `${border}`;
             document.body.append(element);
             this.#animate(element, 1, 0);
             setTimeout(() => {element.remove()}, 2000);
@@ -116,8 +119,8 @@ export class ShapeModule extends Module {
             elementOne.style.border = elementTwo.style.border = `25px solid rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 254)})`;
             elementOne.style.borderRadius = elementTwo.style.borderRadius = '50px 50px 0 50px';
             elementOne.style.transform = 'rotate(-45deg)';
-            elementOne.style.marginTop=`${y}px`;
-            elementOne.style.marginLeft=`${x}px`;
+            elementOne.style.marginTop =`${y}px`;
+            elementOne.style.marginLeft =`${x}px`;
             elementTwo.style.top = elementTwo.style.left = '100%';
             elementTwo.style.transform = 'rotate(-179deg)';
             document.body.append(elementOne);
@@ -135,8 +138,8 @@ export class ShapeModule extends Module {
             elementOne.style.position = 'relative';
             elementOne.style.width = elementTwo.style.width = '80px';
             elementOne.style.height = elementTwo.style.height = '120px';
-            elementOne.style.marginTop=`${y}px`;
-            elementOne.style.marginLeft=`${x}px`;
+            elementOne.style.marginTop = `${y}px`;
+            elementOne.style.marginLeft = `${x}px`;
             elementOne.style.background = `red`;
             elementOne.style.borderRadius = elementTwo.style.borderRadius = '50px 50px 0 0'; 
             elementOne.style.transform = 'rotate(-45deg)';
@@ -159,8 +162,8 @@ export class ShapeModule extends Module {
             const y = random(2, height - 300);
             elementOne.style.position = 'relative';
             elementOne.style.width = elementOne.style.height = '0px';
-            elementOne.style.marginTop=`${y}px`;
-            elementOne.style.marginLeft=`${x}px`;
+            elementOne.style.marginTop =`${y}px`;
+            elementOne.style.marginLeft =`${x}px`;
             elementOne.style.borderLeft = elementOne.style.borderRight = '100px solid transparent'; 
             elementOne.style.borderBottom = elementTwo.style.borderTop = `150px solid ${this.#getRandomColor()}`;
             elementTwo.style.position = 'absolute';
