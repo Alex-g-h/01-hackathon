@@ -8,7 +8,7 @@ const contextMenu = new ContextMenu('.menu');
 
 const testModule1 = new TestModule('test', 'test module 1');
 const testModule2 = new TestModule('test', 'test module 2');
-const testModule3 = new BackgroundModule('test', 'test module 3');
+const testModule3 = new BackgroundModule();
 const testModule4 = new TestModule('test', 'test module with huge length text for extended test for big height');
 
 contextMenu.add(testModule1);
