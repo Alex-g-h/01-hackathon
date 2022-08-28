@@ -2,19 +2,19 @@ import { Module } from "../core/module";
 import { random } from "../utils.js";
 
 export class ClicksModule extends Module {
-  constructor(type, text) {
-    super(type, text);
-  }
-
   #clickCount;
 
+  constructor(type, text) {
+    super("click", "Считать клики");
+    this.#clickCount = 0;
+  }
+
   #countClicks() {
-    clickCount++;
+    this.#clickCount += 1;
   }
 
   trigger() {
-    const clickTime = new random(5000, 10000);
-    this.#clickCount = 0;
+    const clickTime = random(5000, 10000);
 
     alert(
       `После нажатия на ОК будет подсчет кликов в любом месте экрана за время ${Math.round(
@@ -24,9 +24,11 @@ export class ClicksModule extends Module {
 
     setTimeout(() => {
       alert(`Количество кликов равно ${this.#clickCount}`);
-      document.removeEventListener("click", this.#countClicks);
+      document.removeEventListener("click", document);
     }, clickTime);
 
-    document.addEventListener("click", this.#countClicks);
+    document.addEventListener("click", () => {
+      this.#countClicks();
+    });
   }
 }
