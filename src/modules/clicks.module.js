@@ -24,7 +24,7 @@ export class ClicksModule extends Module {
       )} секунд`
     );
 
-    let addCallbackFunc = this.#countClicks.bind(this);
+    const addCallbackFunc = this.#countClicks.bind(this);
 
     setTimeout(() => {
       alert(`Количество кликов равно ${this.#clickCount}`);
