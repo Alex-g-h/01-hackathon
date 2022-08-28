@@ -29,7 +29,6 @@ export class TimerModule extends Module {
       timeInt = TimerModule.#TIME_DEFAULT; // use default value
 
     this.#timeRemain = timeInt;
-    this.#elem.style.display = 'flex'; // show element
     this.#intervalId = setInterval(this.#timerValueDecrement.bind(this), 1000);
   }
 
@@ -37,8 +36,10 @@ export class TimerModule extends Module {
     if (this.#timeRemain <= 0) {
       clearInterval(this.#intervalId);
       this.#elem.style.display = 'none'; // hide element
+      return;
     } 
-    
+
+    this.#elem.style.display = 'flex'; // show element
     this.#elem.textContent = String(this.#timeRemain--);
   } 
 }

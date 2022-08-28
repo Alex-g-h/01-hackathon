@@ -44,7 +44,11 @@ body {
 .timer {
     display: flex;
     float: right;
+    flex-direction: column-reverse;
     align-items: flex-end;
-    height: 100%;
-    /* border: 1px solid purple; */
+    border: 3px solid purple;
+    border-radius: 10px;
+    font-weight: bolder;
+    padding: 5px;
+    display: none;
 }
